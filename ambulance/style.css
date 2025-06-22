@@ -1,0 +1,342 @@
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6dd5fa, #cfe263);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+header {
+  background: rgba(0,0,0,0.3);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  text-shadow: 1px 1px 3px #000;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-link:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.nav-link.active {
+  background-color: #fff;
+  color: #2980b9;
+  font-weight: 700;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+}
+
+.btn.primary {
+  background: #ffd700;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
+}
+
+.btn.primary:hover {
+  background: #ffc107;
+  box-shadow: 0 6px 15px rgba(255, 193, 7, 0.8);
+}
+
+.btn.secondary {
+  background: #2980b9;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(41, 128, 185, 0.6);
+}
+
+.btn.terenary {
+  background: #c22206;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(41, 128, 185, 0.6);
+}
+
+.btn.secondary:hover {
+  background: #1c5980;
+  box-shadow: 0 6px 15px rgba(28, 89, 128, 0.8);
+}
+
+.btn.logout-btn {
+  background: #e74c3c;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.6);
+}
+
+.btn.logout-btn:hover {
+  background: #c0392b;
+  box-shadow: 0 6px 15px rgba(192, 57, 43, 0.8);
+}
+
+/* Main content styles */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 1rem auto 3rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* Homepage */
+.home-main h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+}
+
+.home-main p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Forms */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.3);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ffd700;
+  text-shadow: 1px 1px 3px #000;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: 0 0 8px 2px #ffd700;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Hospital List */
+.hospital-list-container h2 {
+  margin-bottom: 1rem;
+  color: #ffd700;
+  text-shadow: 1px 1px 3px #000;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 12px 3px #ffd700;
+  background-color: #fff;
+  color: #000;
+}
+
+.hospital-list {
+  list-style: none;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.hospital-list li {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.hospital-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.7);
+}
+
+.hospital-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.25rem;
+}
+
+.hospital-location,
+.hospital-contact {
+  font-size: 1rem;
+  color: #0a0101;
+  margin-bottom: 0.25rem;
+}
+
+.ambulance-availability {
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 15px;
+  display: inline-block;
+  color: #0a0101;
+  user-select: none;
+}
+
+.available {
+  background: #27ae60;
+  box-shadow: 0 0 8px #27ae60;
+}
+
+.unavailable {
+  background: #c0392b;
+  box-shadow: 0 0 8px #c0392b;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0,0,0,0.3);
+  color: #0a0000;
+  font-weight: 500;
+  box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.1);
+  user-select: none;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav {
+    justify-content: center;
+  }
+  main {
+    margin: 1rem 1rem 3rem;
+  }
+}
+.hospital-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  color: #0f0202;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hospital-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+}
+
+.hospital-item h3 {
+  font-size: 1.4rem;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.hospital-item p {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #0e0101;
+}
+
+.hospital-item .availability {
+  font-weight: bold;
+  padding: 0.4rem 0.75rem;
+  border-radius: 25px;
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #050000;
+  font-size: 0.95rem;
+}
+
+.hospital-item .available {
+  background-color: #2ecc71;
+  box-shadow: 0 0 8px #2ecc71;
+}
+
+.hospital-item .unavailable {
+  background-color: #e74c3c;
+  box-shadow: 0 0 8px #e74c3c;
+}

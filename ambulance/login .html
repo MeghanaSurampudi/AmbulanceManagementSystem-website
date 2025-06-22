@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Ambulance Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚑 Ambulance Management System</h1>
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="login .html" class="nav-link active">Login</a>
+      <a href="register.html" class="nav-link">Register</a>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Login to your account</h2>
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" required placeholder="you@example.com" />
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" required placeholder="Enter password" />
+      <button type="submit" class="btn primary">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+  </main>
+
+  <footer>
+    <p>© 2022 Ambulance Management System(@krify)</p>
+  </footer>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      // Simple validation example; in real app, authenticate with backend
+      if(email === "" || password === "") {
+        alert("Please fill all fields");
+        return;
+      }
+
+      // Simulate login success if email and password match "test"
+      if(email === "user@example.com" && password === "test123") {
+        // Save login state to sessionStorage
+        sessionStorage.setItem('loggedInUser', email);
+        window.location.href = 'hospitals.html';
+      } else {
+        alert("Invalid email or password. Try 'user@example.com' and 'test123'");
+      }
+    });
+  </script>
+</body>
+</html>

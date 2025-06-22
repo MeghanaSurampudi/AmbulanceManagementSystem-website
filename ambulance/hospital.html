@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hospitals & Ambulance Availability</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚑 Ambulance Management System</h1>
+  </header>
+
+  <main>
+    <h2>Hospitals & Ambulance Availability</h2>
+    <input type="text" id="searchInput" placeholder="Search hospitals..." />
+
+    <ul id="hospitalList" class="hospital-list"></ul>
+  </main>
+
+  <footer>
+    <p>© 2022 Ambulance Management System(@krify)</p>
+  </footer>
+
+  <script>
+    const hospitals = [
+      { name: "City Hospital", location: "Downtown", ambulances: 3, contact: "123-456-7890" },
+      { name: "Green Valley Medical", location: "Green Valley", ambulances: 0, contact: "987-654-3210" },
+      { name: "Riverfront Clinic", location: "Riverside", ambulances: 2, contact: "555-123-4567" },
+      { name: "Sunrise Hospital", location: "Sunrise District", ambulances: 5, contact: "444-555-6666" },
+      { name: "Lakeside Health Center", location: "Lakeside", ambulances: 1, contact: "222-333-4444" }
+    ];
+
+    const hospitalList = document.getElementById('hospitalList');
+    const searchInput = document.getElementById('searchInput');
+
+    function renderHospitals(filter = "") {
+      hospitalList.innerHTML = "";
+      const filtered = hospitals.filter(h => 
+        h.name.toLowerCase().includes(filter.toLowerCase()) ||
+        h.location.toLowerCase().includes(filter.toLowerCase())
+      );
+      if (filtered.length === 0) {
+        hospitalList.innerHTML = "<li>No hospitals found.</li>";
+        return;
+      }
+      filtered.forEach(hospital => {
+        const li = document.createElement('li');
+        li.classList.add('hospital-item');
+
+        const availabilityClass = hospital.ambulances > 0 ? "available" : "unavailable";
+        const availabilityText = hospital.ambulances > 0 ? `${hospital.ambulances} Ambulance(s) Available` : "No Ambulances Available";
+
+        li.innerHTML = `
+          <h3>${hospital.name}</h3>
+          <p><strong>Location:</strong> ${hospital.location}</p>
+          <p><strong>Contact:</strong> ${hospital.contact}</p>
+          <p class="availability ${availabilityClass}">${availabilityText}</p>
+        `;
+        hospitalList.appendChild(li);
+      });
+    }
+
+    searchInput.addEventListener('input', e => {
+      renderHospitals(e.target.value);
+    });
+
+    renderHospitals();
+  </script>
+</body>
+</html>

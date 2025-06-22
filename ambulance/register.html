@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - Ambulance Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚑 Ambulance Management System</h1>
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="login .html" class="nav-link">Login</a>
+      <a href="register.html" class="nav-link active">Register</a>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Create an Account</h2>
+    <form id="registerForm">
+      <label for="registerName">Full Name</label>
+      <input type="text" id="registerName" required placeholder="Your full name" />
+      <label for="registerEmail">Email</label>
+      <input type="email" id="registerEmail" required placeholder="you@example.com" />
+      <label for="registerPassword">Password</label>
+      <input type="password" id="registerPassword" required placeholder="Enter password" />
+      <label for="registerConfirmPassword">Confirm Password</label>
+      <input type="password" id="registerConfirmPassword" required placeholder="Confirm password" />
+      <button type="submit" class="btn primary">Register</button>
+    </form>
+    <p>Already have an account? <a href="login .html">Login here</a></p>
+  </main>
+
+  <footer>
+    <p>© 2022 Ambulance Management System (@krify )</p>
+  </footer>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value.trim();
+      const confirmPassword = document.getElementById('registerConfirmPassword').value.trim();
+
+      if(!name || !email || !password || !confirmPassword) {
+        alert("Please fill all fields");
+        return;
+      }
+      if(password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+      }
+      // Simulate registration success
+      alert("Registration successful! You can now login.");
+      window.location.href = "login .html";
+    });
+  </script>
+</body>
+</html>
